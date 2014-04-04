@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nancy.Hosting.Self;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,12 @@ namespace sink
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hi");
+
+            var uri = new Uri("http://localhost:8080");
+            using (var host = new NancyHost(uri))
+            {
+                host.Start();
+            }
         }
     }
 }
