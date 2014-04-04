@@ -1,1 +1,6 @@
 C:\home\dev\sink\sink\bin\Debug\sink.exe.config
+C:\home\dev\sink\sink\bin\Debug\sink.exe
+C:\home\dev\sink\sink\bin\Debug\sink.pdb
+C:\home\dev\sink\sink\obj\Debug\sink.csprojResolveAssemblyReference.cache
+C:\home\dev\sink\sink\obj\Debug\sink.exe
+C:\home\dev\sink\sink\obj\Debug\sink.pdb
