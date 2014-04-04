@@ -9,7 +9,6 @@ namespace sink.Modules
 {
     public class HelloModule : NancyModule
     {
-
         public HelloModule()
         {
             Get["/"] = parameters => "hi";
