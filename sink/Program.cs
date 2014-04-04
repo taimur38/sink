@@ -15,10 +15,10 @@ namespace sink
 
             var uri = new Uri("http://localhost:80");
 
-            var hc = new HostConfiguration();
-            hc.UrlReservations.CreateAutomatically = true;
+            //var hc = new HostConfiguration();
+            //hc.UrlReservations.CreateAutomatically = true;
 
-            using (var host = new NancyHost(hc, uri))
+            using (var host = new NancyHost(uri))
             {
                 host.Start();
                 Thread.Sleep(Timeout.Infinite);
