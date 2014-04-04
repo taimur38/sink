@@ -6,8 +6,5 @@ C:\home\dev\sink\sink\obj\Debug\sink.exe
 C:\home\dev\sink\sink\obj\Debug\sink.pdb
 C:\home\dev\sink\sink\bin\Debug\Nancy.dll
 C:\home\dev\sink\sink\bin\Debug\Nancy.Hosting.Self.dll
-C:\home\dev\sink\sink\bin\Debug\Nancy.Serialization.JsonNet.dll
-C:\home\dev\sink\sink\bin\Debug\Newtonsoft.Json.dll
 C:\home\dev\sink\sink\bin\Debug\Nancy.xml
 C:\home\dev\sink\sink\bin\Debug\Nancy.Hosting.Self.xml
-C:\home\dev\sink\sink\bin\Debug\Newtonsoft.Json.xml
