@@ -13,7 +13,7 @@ namespace sink
         static void Main(string[] args)
         {
 
-            var uri = new Uri("http://localhost:80");
+            var uri = new Uri("http://localhost:6969");
 
             //var hc = new HostConfiguration();
             //hc.UrlReservations.CreateAutomatically = true;
