@@ -22,6 +22,7 @@ namespace sink.Models
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime Date { get; set; }
 
+        [BsonIgnore]
         public MongoCollection Collection { get; set; }
 
         public virtual void Save()
