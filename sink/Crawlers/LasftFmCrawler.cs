@@ -22,7 +22,7 @@ namespace sink.Crawlers
         public override int Crawl()
         {
             var wc = new WebClient();
-            var page = 0;
+            var page = 1;
 
             var items_crawled = 0;
 
