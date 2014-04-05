@@ -18,7 +18,7 @@ namespace sink.Models
 
         public LastFm()
         {
-            Collection = Context.Mongo.DB.GetCollection<LastFm>("lastfm");
+            Updator = new ModelUpdator<LastFm>(this);
         }
 
         public LastFm(JToken json) : this()
@@ -32,12 +32,18 @@ namespace sink.Models
             var uts = long.Parse(json["date"]["uts"].ToString());
             Date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
             Date = Date.AddSeconds(uts).ToLocalTime(); //TODO: this needs to use time of location from phone. can be done at deserialization
+        }
 
+        public ModelUpdator<LastFm> Updator { get; private set; }
+
+        public void Save()
+        {
+            Updator.Save();
         }
 
         public override bool Exists()
         {
-            var res = Collection.AsQueryable<LastFm>().FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
+            var res = Updator.Queryable().FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
 
             return res != null;
         }
