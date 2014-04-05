@@ -18,7 +18,7 @@ namespace sink.Models
 
         public LastFm()
         {
-            Collection = Context.Mongo.DB.GetCollection<LastFm>("LastFm");
+            Collection = Context.Mongo.DB.GetCollection<LastFm>("lastfm");
         }
 
         public LastFm(JToken json)
