@@ -19,7 +19,9 @@ namespace sink.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime Date { get; set; }
+
         public MongoCollection Collection { get; set; }
 
         public virtual void Save()
