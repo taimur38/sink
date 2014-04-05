@@ -21,7 +21,7 @@ namespace sink.Models
             Collection = Context.Mongo.DB.GetCollection<LastFm>("lastfm");
         }
 
-        public LastFm(JToken json)
+        public LastFm(JToken json) : this()
         {
             Artist = json["artist"]["#text"].ToString();
             Title = json["name"].ToString();
@@ -37,8 +37,7 @@ namespace sink.Models
 
         public override bool Exists()
         {
-            var res = Collection.AsQueryable<LastFm>()
-                .FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
+            var res = Collection.AsQueryable<LastFm>().FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
 
             return res != null;
         }

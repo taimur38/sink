@@ -40,6 +40,7 @@ namespace sink.Crawlers
                         return items_crawled;
                     
                     model.Save();
+                    Console.WriteLine("Crawled " + model.Title + " by " + model.Artist + " on " + model.Date);
                     items_crawled++;
                 }
             }

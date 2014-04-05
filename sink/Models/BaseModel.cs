@@ -20,7 +20,7 @@ namespace sink.Models
         public string Id { get; set; }
 
         public DateTime Date { get; set; }
-        public static MongoCollection Collection { get; set; }
+        public MongoCollection Collection { get; set; }
 
         public virtual void Save()
         {

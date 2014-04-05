@@ -32,13 +32,11 @@ namespace sink
         static void extra_shit()
         {
             Console.WriteLine("starting crawl");
-            var c = new LastFmCrawler();
 
+            var c = new LastFmCrawler();
             var items = c.Crawl();
 
             Console.WriteLine("{0} items crawled.".Template(items));
-
-            
         }
     }
 }
