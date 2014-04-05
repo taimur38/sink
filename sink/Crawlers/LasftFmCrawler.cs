@@ -25,6 +25,7 @@ namespace sink.Crawlers
             var page = 2;
 
             var items_crawled = 0;
+            var copies = 0;
 
             while (true)
             {
@@ -37,12 +38,19 @@ namespace sink.Crawlers
                 {
                     var model = new LastFm(track);
                     if (model.Exists())
-                        return items_crawled;
+                    {
+                        copies++;
+                        if (copies > 100)
+                            return items_crawled;
+                        continue;
+                    }
                     
                     model.Save();
                     Console.WriteLine("Crawled " + model.Title + " by " + model.Artist + " on " + model.Date);
                     items_crawled++;
                 }
+
+                copies = 0;
             }
         }
     }
