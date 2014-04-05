@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Crawlers\Crawler.cs" />
-    <Compile Include="Crawlers\LasftFmCrawler.cs" />
+    <Compile Include="Crawlers\LastFmCrawler.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Crawlable.cs" />
