@@ -11,3 +11,7 @@ C:\home\dev\sink\sink\bin\Debug\Newtonsoft.Json.xml
 C:\home\dev\sink\sink\obj\Debug\sink.csprojResolveAssemblyReference.cache
 C:\home\dev\sink\sink\obj\Debug\sink.exe
 C:\home\dev\sink\sink\obj\Debug\sink.pdb
+C:\home\dev\sink\sink\bin\Debug\MongoDB.Bson.dll
+C:\home\dev\sink\sink\bin\Debug\MongoDB.Driver.dll
+C:\home\dev\sink\sink\bin\Debug\MongoDB.Bson.xml
+C:\home\dev\sink\sink\bin\Debug\MongoDB.Driver.xml
