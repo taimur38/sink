@@ -10,6 +10,7 @@ using Google.Apis.Auth.OAuth2;
 using System.Threading;
 using Google.Apis.Services;
 using sink.Models;
+using System.Net;
 
 
 namespace sink.Crawlers
@@ -19,11 +20,19 @@ namespace sink.Crawlers
         public GoogleCalendarCrawler()
             : base("Google Calendar")
         {
-            Url = "https://www.googleapis.com/calendar/v3/users/me/calendarList";
+            Url = "";
         }
 
         public override int Crawl()
         {
+            //var post_string = "client_id={0}&scope=https://www.googleapis.com/auth/calendar".Template(Config.GoogleClientCredential.ClientId);
+
+            //var wc = new WebClient();
+            //wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+
+            //var res = wc.UploadString("http://accounts.google.com/o/oauth2/device/code", post_string);
+
+
             var creds = GoogleWebAuthorizationBroker.AuthorizeAsync(
                 Config.GoogleClientCredential, new[] { CalendarService.Scope.Calendar }, "user", CancellationToken.None).Result;
 
