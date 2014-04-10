@@ -33,6 +33,13 @@ namespace sink
         {
             Console.WriteLine("starting crawl");
 
+            var g = new GoogleCalendarCrawler();
+            var stuff = g.Crawl();
+
+            Console.WriteLine("{0} items crawled".Template(stuff));
+
+            return;
+
             var c = new LastFmCrawler();
             var items = c.Crawl();
 

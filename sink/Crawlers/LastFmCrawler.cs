@@ -16,7 +16,7 @@ namespace sink.Crawlers
         public LastFmCrawler()
             : base("LastFM")
         {
-            Url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=taimur38&api_key=4fb61b9f3aa975c486531f4e5223d353&format=json&limit=200&page={0}";
+            Url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=taimur38&api_key={0}&format=json&limit=200&page={1}".Template(Config.LastFmAPIKey);
         }
 
         public override int Crawl()
