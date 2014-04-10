@@ -50,3 +50,5 @@ C:\home\dev\sink\sink\bin\Debug\Google.Apis.Auth.PlatformServices.pdb
 C:\home\dev\sink\sink\bin\Debug\Google.Apis.Auth.PlatformServices.xml
 C:\home\dev\sink\sink\bin\Debug\Google.Apis.Calendar.v3.pdb
 C:\home\dev\sink\sink\bin\Debug\Google.Apis.Calendar.v3.xml
+C:\home\dev\sink\sink\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\home\dev\sink\sink\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml

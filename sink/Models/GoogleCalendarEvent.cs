@@ -14,7 +14,10 @@ namespace sink.Models
         {
             this.Event = e;
             this.Updator = new ModelUpdator<GoogleCalendarEvent>(this);
-            this.Date = e.OriginalStartTime.DateTime ?? DateTime.Now;       //TODO: something when null
+            if (e.RecurringEventId != null)
+                this.Date = e.OriginalStartTime.DateTime ?? DateTime.Now;       //TODO: something else when null
+            else
+                this.Date = e.Start.DateTime ?? DateTime.Now;
         }
 
         public Event Event { get; private set; }
