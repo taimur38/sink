@@ -16,8 +16,8 @@ namespace sink
 
             var uri = new Uri("http://localhost:6969");  // lololololololol
 
-            //var hc = new HostConfiguration();
-            //hc.UrlReservations.CreateAutomatically = true;
+            var hc = new HostConfiguration();
+            hc.UrlReservations.CreateAutomatically = true;
 
             var t = new Thread(extra_shit);
             t.Start();
