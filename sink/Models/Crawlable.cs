@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sink.Models
 {
-    public abstract class Crawlable : BaseModel
+    public abstract class Crawlable : BaseActivity
     {
         public abstract bool Exists();
     }

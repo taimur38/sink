@@ -11,7 +11,7 @@ namespace sink.Services
     {
         public MongoService()
         {
-            var client = new MongoClient("mongodb://localhost");
+            var client = new MongoClient(Config.MongoIP);
             var server = client.GetServer();
             DB = server.GetDatabase("sink-db");
         }

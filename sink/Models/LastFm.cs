@@ -19,6 +19,7 @@ namespace sink.Models
         public LastFm()
         {
             Updator = new ModelUpdator<LastFm>(this);
+            Duration = new TimeSpan(0, 4, 0);           // default to 4 minutes. can't retrieve duration
         }
 
         public LastFm(JToken json) : this()
@@ -36,7 +37,7 @@ namespace sink.Models
 
         public ModelUpdator<LastFm> Updator { get; private set; }
 
-        public void Save()
+        public override void Save()
         {
             Updator.Save();
         }

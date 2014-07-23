@@ -18,12 +18,17 @@ namespace sink.Models
                 this.Date = e.OriginalStartTime.DateTime ?? DateTime.Now;       //TODO: something else when null
             else
                 this.Date = e.Start.DateTime ?? DateTime.Now;
+
+            if (e.End.DateTime != null && e.Start.DateTime != null)
+                Duration = (DateTime)e.End.DateTime - (DateTime)e.Start.DateTime;
+            else
+                Duration = new TimeSpan(0, 30, 0); // default to 30 min i guess.
         }
 
         public Event Event { get; private set; }
         public ModelUpdator<GoogleCalendarEvent> Updator { get; private set; }
 
-        public void Save()
+        public override void Save()
         {
             Updator.Save();
         }

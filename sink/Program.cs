@@ -14,12 +14,12 @@ namespace sink
         static void Main(string[] args)
         {
 
-            var uri = new Uri("http://localhost:6969");
+            var uri = new Uri("http://localhost:6969");  // lololololololol
 
             //var hc = new HostConfiguration();
             //hc.UrlReservations.CreateAutomatically = true;
 
-            var t = new Thread(new ThreadStart(extra_shit));
+            var t = new Thread(extra_shit);
             t.Start();
 
             using (var host = new NancyHost(uri))
@@ -32,18 +32,21 @@ namespace sink
         static void extra_shit()
         {
             Console.WriteLine("starting crawl");
-
+            
+            /*
             var g = new GoogleCalendarCrawler();
             var stuff = g.Crawl();
 
             Console.WriteLine("{0} items crawled".Template(stuff));
 
-            return;
-
+            return;*/
+            
             var c = new LastFmCrawler();
             var items = c.Crawl();
 
             Console.WriteLine("{0} items crawled.".Template(items));
+
+            return;
         }
     }
 }
