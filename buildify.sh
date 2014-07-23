@@ -1,2 +1,1 @@
-git pull origin master
-xbuild
+git pull origin master;xbuild;
