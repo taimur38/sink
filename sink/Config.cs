@@ -23,11 +23,17 @@ namespace sink
             get
             {
                 return new ClientSecrets 
-                { 
-                    ClientId = "969643812602-0k7e3vqntt3j6gngggpk8kdicjcrhhbu.apps.googleusercontent.com", 
+                {
+                    
+                    ClientId = "969643812602-feu9cjsfmv69qsgj1rjoof7hlhalacll.apps.googleusercontent.com", 
                     ClientSecret = "2bLoAblWyZ1nUww2LX3nuBHT" 
                 };
             }
+        }
+
+        public static string MongoIP
+        {
+            get { return "mongodb://54.191.89.239"; }
         }
 
 

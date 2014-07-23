@@ -11,6 +11,8 @@ using System.Threading;
 using Google.Apis.Services;
 using sink.Models;
 using System.Net;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace sink.Crawlers
@@ -32,9 +34,12 @@ namespace sink.Crawlers
 
             //var res = wc.UploadString("http://accounts.google.com/o/oauth2/device/code", post_string);
 
+           // var cert = new X509Certificate2("path/to/file", "password", X509KeyStorageFlags.Exportable);
+            //var provider = new AssertionFlow()
+
 
             var creds = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                Config.GoogleClientCredential, new[] { CalendarService.Scope.Calendar }, "user", CancellationToken.None).Result;
+                Config.GoogleClientCredential, new[] { CalendarService.Scope.Calendar }, "taimur38", CancellationToken.None).Result;
 
             var service = new CalendarService(new BaseClientService.Initializer()
             {
@@ -43,7 +48,12 @@ namespace sink.Crawlers
             });
 
 
-            var events = service.Events.List("primary").Execute();
+            var request = service.Events.List("primary");
+            request.MaxResults = 2500; //max
+            request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+            request.TimeMin = DateTime.Now.AddYears(-1);
+
+            var events = request.Execute();
             var count = 0;
 
             foreach (var e in events.Items)

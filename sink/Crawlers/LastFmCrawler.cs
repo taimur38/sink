@@ -16,7 +16,7 @@ namespace sink.Crawlers
         public LastFmCrawler()
             : base("LastFM")
         {
-            Url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=taimur38&api_key={0}&format=json&limit=200&page={1}".Template(Config.LastFmAPIKey);
+            Url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=taimur38&api_key={0}&format=json&limit=200&page={1}";
         }
 
         public override int Crawl()
@@ -29,7 +29,7 @@ namespace sink.Crawlers
 
             while (true)
             {
-                var json_data = wc.DownloadString(Url.Template(page++));
+                var json_data = wc.DownloadString(Url.Template(Config.LastFmAPIKey, page++));
                 var json = (JObject) JsonConvert.DeserializeObject(json_data);
                 var tracks = json["recenttracks"]["track"];
 
