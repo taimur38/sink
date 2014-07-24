@@ -12,7 +12,11 @@ namespace sink.Modules
     {
         public HelloModule()
         {
-            Get["/"] = parameters => "hi";
+            Get["/"] = parameters =>
+            {
+                Console.WriteLine("connection");
+                return "hi";
+            };
         }
 
     }

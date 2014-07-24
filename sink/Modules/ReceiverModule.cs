@@ -12,14 +12,23 @@ namespace sink.Modules
     {
         public ReceiverModule()
         {
-            Get["/receive/app"] = parameters =>
+            Post["/faucet/app"] = parameters =>
             {
-                var entry = new AppUsage(parameters.Name, parameters.Date, new TimeSpan(0, 0, parameters.Duration));
-                
-                return "ok";
+                try
+                {
+                    var d = parameters.Date;
+
+                    var entry = new AppUsage(parameters.Name, parameters.Date, new TimeSpan(0, 0, parameters.Duration));
+
+                    return "ok";
+                }
+                catch (Exception e)
+                {
+                    return e.Message;
+                }
             };
 
-            Get["/receive/location"] = parameters =>
+            Get["/faucet/location"] = parameters =>
                 {
                     return "yes";
                 };
