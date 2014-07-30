@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using sink;
-using sink.Models;
+using sink.States;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -36,7 +36,7 @@ namespace sink.Crawlers
                 
                 foreach (var track in tracks)
                 {
-                    var model = new LastFm(track);
+                    var model = new MusicState(track);
                     if (model.Exists())
                     {
                         copies++;

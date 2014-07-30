@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sink.Models
+namespace sink.States
 {
-    public abstract class Crawlable : BaseActivity
+    public abstract class CrawledState : BaseState
     {
         public abstract bool Exists();
     }

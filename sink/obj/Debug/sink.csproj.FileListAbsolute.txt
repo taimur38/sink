@@ -56,7 +56,6 @@ C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\sink.exe.config
 C:\cygwin64\home\Taimur\dev\sink\sink\obj\Debug\sink.exe
 C:\cygwin64\home\Taimur\dev\sink\sink\obj\Debug\sink.pdb
 C:\cygwin64\home\Taimur\dev\sink\sink\obj\Debug\sink.csproj.App.config
-C:\cygwin64\home\Taimur\dev\sink\sink\obj\Debug\sink.csprojResolveAssemblyReference.cache
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\sink.exe
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\sink.pdb
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\Google.Apis.Auth.dll

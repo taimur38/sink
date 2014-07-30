@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Google;
 using Google.Apis.Calendar.v3.Data;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace sink.Models
+namespace sink.States
 {
-    public class GoogleCalendarEvent : Crawlable
+    public class CalendarState : CrawledState
     {
-        public GoogleCalendarEvent(Event e)
+        public CalendarState(Event e)
         {
             this.Event = e;
-            this.Updator = new ModelUpdator<GoogleCalendarEvent>(this);
             if (e.RecurringEventId != null)
                 this.Date = e.OriginalStartTime.DateTime ?? DateTime.Now;       //TODO: something else when null
             else
@@ -26,16 +26,16 @@ namespace sink.Models
         }
 
         public Event Event { get; private set; }
-        public ModelUpdator<GoogleCalendarEvent> Updator { get; private set; }
+        public TimeSpan Duration { get; private set; }
 
         public override void Save()
         {
-            Updator.Save();
+            this.Collection<CalendarState>().Save(this);
         }
 
         public override bool Exists()
         {
-            var res = Updator.Queryable().FirstOrDefault(x => x.Event.Id == this.Event.Id);
+            var res = this.Queryable<CalendarState>().FirstOrDefault(x => x.Event.Id == this.Event.Id);
 
             return res != null;
         }

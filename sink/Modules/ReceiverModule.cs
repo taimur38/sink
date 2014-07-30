@@ -4,21 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nancy;
-using sink.Models;
+using sink.States;
+using Nancy.ModelBinding;
 
 namespace sink.Modules
 {
     public class ReceiverModule : NancyModule
     {
-        public ReceiverModule()
+        BindingConfig config = new BindingConfig() 
         {
-            Post["/faucet/app"] = parameters =>
+            BodyOnly = true
+        };
+                    
+        public ReceiverModule() : base("/faucet")
+        {
+            Post["/app"] = parameters =>
             {
                 try
                 {
-                    var d = parameters.Date;
+                    var entry = this.Bind<AppState>(config, f => f.Id);
 
-                    var entry = new AppUsage(parameters.Name, parameters.Date, new TimeSpan(0, 0, parameters.Duration));
+                    entry.Save();
 
                     return "ok";
                 }
@@ -28,9 +34,18 @@ namespace sink.Modules
                 }
             };
 
-            Get["/faucet/location"] = parameters =>
+            Get["/location"] = parameters =>
                 {
-                    return "yes";
+                    try
+                    {
+                        var location = this.Bind<LocationState>(config, f => f.Id);
+                        location.Save();
+                        return "ok";
+                    }
+                    catch (Exception e)
+                    {
+                        return e.Message;
+                    }
                 };
         }
     }

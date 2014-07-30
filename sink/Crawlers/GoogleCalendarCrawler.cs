@@ -9,7 +9,7 @@ using Google.Apis.Calendar.v3;
 using Google.Apis.Auth.OAuth2;
 using System.Threading;
 using Google.Apis.Services;
-using sink.Models;
+using sink.States;
 using System.Net;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -58,7 +58,7 @@ namespace sink.Crawlers
 
             foreach (var e in events.Items)
             {
-                var model = new GoogleCalendarEvent(e);
+                var model = new CalendarState(e);
 
                 if (!model.Exists())
                 {

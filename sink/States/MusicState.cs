@@ -9,20 +9,20 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using Newtonsoft.Json.Linq;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace sink.Models
+namespace sink.States
 {
     
-    public class LastFm : Crawlable
+    public class MusicState : CrawledState
     {
-
-        public LastFm()
+        public MusicState()
         {
-            Updator = new ModelUpdator<LastFm>(this);
-            Duration = new TimeSpan(0, 4, 0);           // default to 4 minutes. can't retrieve duration
+            DeviceType = Device.All;
+            DeviceName = "";
         }
 
-        public LastFm(JToken json) : this()
+        public MusicState(JToken json) : this()
         {
             Artist = json["artist"]["#text"].ToString();
             Title = json["name"].ToString();
@@ -35,16 +35,14 @@ namespace sink.Models
             Date = Date.AddSeconds(uts).ToLocalTime(); //TODO: this needs to use time of location from phone. can be done at deserialization
         }
 
-        public ModelUpdator<LastFm> Updator { get; private set; }
-
         public override void Save()
         {
-            Updator.Save();
+            this.Collection<MusicState>().Save(this);
         }
 
         public override bool Exists()
         {
-            var res = Updator.Queryable().FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
+            var res = this.Queryable<MusicState>().FirstOrDefault(x => x.Date == this.Date && x.Title == this.Title);
 
             return res != null;
         }

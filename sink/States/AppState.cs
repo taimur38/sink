@@ -1,19 +1,19 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sink.Models
+namespace sink.States
 {
-    public class AppUsage : BaseActivity
+    public class AppState : BaseState
     {
-        public AppUsage()
+        public AppState()
         {
-            Updator = new ModelUpdator<AppUsage>(this);
         }
 
-        public AppUsage(string name, DateTime date, TimeSpan duration)
+        public AppState(string name, DateTime date, TimeSpan duration) : this()
         {
             Name = name;
             Date = date;
@@ -21,14 +21,12 @@ namespace sink.Models
         }
 
         public string Name { get; set; }
-
-        public ModelUpdator<AppUsage> Updator { get; private set; }
+        public TimeSpan Duration { get; set; }
 
         public override void Save()
         {
-            Updator.Save();
+            this.Collection<AppState>().Save(this);
         }
-        
 
     }
 }
