@@ -30,9 +30,17 @@ namespace sink.States
             Url = json["url"].ToString();
             Image = json["image"].Last["#text"].ToString();
 
-            var uts = long.Parse(json["date"]["uts"].ToString());
-            Date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            Date = Date.AddSeconds(uts).ToLocalTime(); //TODO: this needs to use time of location from phone. can be done at deserialization
+            try
+            {
+                var uts = long.Parse(json["date"]["uts"].ToString());
+                Date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                Date = Date.AddSeconds(uts).ToLocalTime(); //TODO: this needs to use time of location from phone. can be done at deserialization
+            }
+            catch()
+            {
+                Date = DateTime.Now;
+            }
+            
         }
 
         public override void Save()
