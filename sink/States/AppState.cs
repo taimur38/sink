@@ -13,7 +13,7 @@ namespace sink.States
         {
         }
 
-        public AppState(string name, DateTime date, TimeSpan duration) : this()
+        public AppState(string name, DateTime date, long duration) : this()
         {
             Name = name;
             Date = date;
@@ -21,7 +21,7 @@ namespace sink.States
         }
 
         public string Name { get; set; }
-        public TimeSpan Duration { get; set; }
+        public long Duration { get; set; }
 
         public override void Save()
         {
