@@ -9,12 +9,19 @@ namespace sink.States
 {
     public class LocationState : BaseState
     {
-        public LocationState(double lat, double lon, string name = "", bool travel = false)
+
+        public LocationState()
+        {
+        }
+
+        public LocationState(double lat, double lon, double alt, double acc, double speed, string name = "")
         {
             Latitude = lat;
             Longitude = lon;
+            Altitude = alt;
+            Accuracy = acc;
+            Speed = speed;
             Name = name;
-            Traveling = travel;
         }
 
         public override void Save()
@@ -24,9 +31,11 @@ namespace sink.States
 
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public double Altitude { get; set; }
+        public double Accuracy { get; set; }
+        public double Speed { get; set; }   // m/s
 
         public string Name { get; set; }
-        public bool Traveling { get; set; }
 
     }
 }

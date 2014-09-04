@@ -33,7 +33,7 @@ namespace sink
 
         public static string MongoIP
         {
-            get { return "mongodb://54.191.89.239"; }
+            get { return "mongodb://metal.fish"; }
         }
 
 
