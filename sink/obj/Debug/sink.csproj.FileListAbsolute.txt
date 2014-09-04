@@ -105,3 +105,4 @@ C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\Newtonsoft.Json.xml
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\System.Net.Http.Extensions.xml
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\System.Net.Http.Primitives.xml
 C:\cygwin64\home\Taimur\dev\sink\sink\bin\Debug\Zlib.Portable.pdb
+C:\cygwin64\home\Taimur\dev\sink\sink\obj\Debug\sink.csprojResolveAssemblyReference.cache

@@ -36,18 +36,26 @@ namespace sink.Crawlers
                 
                 foreach (var track in tracks)
                 {
-                    var model = new MusicState(track);
-                    if (model.Exists())
+                    try
                     {
-                        copies++;
-                        if (copies > 100)
-                            return items_crawled;
-                        continue;
+                        var model = new MusicState(track);
+                        if (model.Exists())
+                        {
+                            copies++;
+                            if (copies > 100)
+                                return items_crawled;
+                            continue;
+                        }
+
+                        model.Save();
+                        Console.WriteLine("Crawled " + model.Title + " by " + model.Artist + " on " + model.Date);
+                        items_crawled++;
                     }
-                    
-                    model.Save();
-                    Console.WriteLine("Crawled " + model.Title + " by " + model.Artist + " on " + model.Date);
-                    items_crawled++;
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("Error " + e.InnerException);
+                        Console.WriteLine(track.ToString());
+                    }
                 }
 
                 copies = 0;
