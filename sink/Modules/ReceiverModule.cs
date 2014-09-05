@@ -21,8 +21,8 @@ namespace sink.Modules
 
             Post["/state"] = parameters =>
                 {
-                    Console.WriteLine(this.Request.Body);
-                    return this.Request.Body;
+                    Console.WriteLine(this.Request.Body.ToString());
+                    return this.Request.Body.ToString();
                 };
 
             Post["/app"] = parameters =>
