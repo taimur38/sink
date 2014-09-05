@@ -18,6 +18,13 @@ namespace sink.Modules
                     
         public ReceiverModule() : base("/faucet")
         {
+
+            Post["/state"] = parameters =>
+                {
+                    Console.WriteLine(this.Request.Body);
+                    return this.Request.Body;
+                };
+
             Post["/app"] = parameters =>
             {
                 try
@@ -34,7 +41,7 @@ namespace sink.Modules
                 }
             };
 
-            Get["/location"] = parameters =>
+            Post["/location"] = parameters =>
                 {
                     try
                     {
@@ -44,6 +51,22 @@ namespace sink.Modules
                     }
                     catch (Exception e)
                     {
+                        return e.Message;
+                    }
+                };
+
+            Post["/battery"] = parameters =>
+                {
+                    try
+                    {
+                        var battery = this.Bind<BatteryState>(config, f => f.Id);
+                        battery.Save();
+
+                        return "ok";
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("i wan");
                         return e.Message;
                     }
                 };
