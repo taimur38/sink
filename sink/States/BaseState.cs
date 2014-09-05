@@ -39,7 +39,7 @@ namespace sink.States
 
         public MongoCollection<T> Collection<T>()
         {
-            return Context.Mongo.DB.GetCollection<T>(typeof(T).Name + "-" + this.DeviceName);
+            return Context.Mongo.DB.GetCollection<T>(typeof(T).Name);
         }
 
         public IQueryable<T> Queryable<T>()
