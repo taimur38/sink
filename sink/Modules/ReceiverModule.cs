@@ -37,6 +37,7 @@ namespace sink.Modules
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     return e.Message;
                 }
             };
@@ -51,6 +52,7 @@ namespace sink.Modules
                     }
                     catch (Exception e)
                     {
+                        Console.WriteLine(e.Message);
                         return e.Message;
                     }
                 };
@@ -66,7 +68,23 @@ namespace sink.Modules
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("i wan");
+                        Console.WriteLine(e.Message);
+                        return e.Message;
+                    }
+                };
+
+            Post["/conn"] = parameters =>
+                {
+                    try
+                    {
+                        var conn = this.Bind<ConnectivityState>(config, f => f.Id);
+                        conn.Save();
+
+                        return "ok";
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
                         return e.Message;
                     }
                 };
