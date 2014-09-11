@@ -29,11 +29,11 @@ namespace sink.Modules
                         var json = reader.ReadToEnd();
 
                         var obj = JObject.Parse(json);
-                        var t = Type.GetType("sink.States." + obj["Type"].ToString());
+                        var t = Type.GetType("sink.States." + obj["Type"]);
 
-
-                        var typed = (BaseState)JsonConvert.DeserializeObject(json, t);
+                        var typed = (BaseState)obj.ToObject(t);
                         Console.WriteLine(typed.GetType());
+                        //typed.Save();
                         
                         
                         Console.WriteLine(json);
