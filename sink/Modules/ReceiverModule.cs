@@ -49,6 +49,36 @@ namespace sink.Modules
                     }
                     
                 };
+
+            Post["/states"] = parameters =>
+                {
+                    try
+                    {
+                        using(var reader = new StreamReader(this.Request.Body))
+                        {
+                            var json = reader.ReadToEnd();
+                            var obj = JObject.Parse(json);
+
+                            Console.WriteLine(obj);
+                            /*
+                            foreach(var o in obj) {
+
+                                var t = Type.GetType("sink.States." + o["Type"]);
+                                var typed = (BaseState)o.ToObject(t); 
+
+                                Console.WriteLine(typed.GetType());
+
+                            } */
+
+                            return json;
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        return e.Message;
+                    }
+                }
         }
     }
 }
