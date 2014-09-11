@@ -32,7 +32,9 @@ namespace sink.Modules
                         var t = Type.GetType("sink.States." + obj["Type"].ToString());
 
 
-                        var typed = JsonConvert.DeserializeObject(json, t);
+                        var typed = (BaseState)JsonConvert.DeserializeObject(json, t);
+                        Console.WriteLine(typed.GetType());
+                        
                         
                         Console.WriteLine(json);
                         return json;
