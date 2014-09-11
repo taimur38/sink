@@ -7,6 +7,8 @@ using Nancy;
 using sink.States;
 using Nancy.ModelBinding;
 using System.IO;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace sink.Modules
 {
@@ -25,6 +27,12 @@ namespace sink.Modules
                     using(var reader = new StreamReader(this.Request.Body))
                     {
                         var json = reader.ReadToEnd();
+
+                        var obj = JObject.Parse(json);
+                        var obj2 = JsonConvert.DeserializeObject(json);
+
+                        Console.WriteLine(obj2.GetType());
+                        Console.WriteLine(obj.GetType());
                         Console.WriteLine(json);
                         return json;
                     }
