@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Nancy;
 using sink.States;
 using Nancy.ModelBinding;
+using System.IO;
 
 namespace sink.Modules
 {
@@ -21,8 +22,13 @@ namespace sink.Modules
 
             Post["/state"] = parameters =>
                 {
-                    Console.WriteLine(this.Request.Body.ToString());
-                    return this.Request.Body.ToString();
+                    using(var reader = new StreamReader(this.Request.Body))
+                    {
+                        var json = reader.ReadToEnd();
+                        Console.WriteLine(json);
+                        return json;
+                    }
+                    
                 };
 
             Post["/app"] = parameters =>
