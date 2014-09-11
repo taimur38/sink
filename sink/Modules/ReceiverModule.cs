@@ -28,7 +28,7 @@ namespace sink.Modules
                         var json = reader.ReadToEnd();
 
                         var obj = JObject.Parse(json);
-                        var t = Type.GetType(obj["Type"].ToString());
+                        var t = Type.GetType("sink.States." + obj["Type"].ToString());
 
 
                         Console.WriteLine(t);
