@@ -68,7 +68,9 @@ namespace sink.Modules
                                 typed.Save();
                             }
 
-                            Console.WriteLine(string.Format("{0} states logged at {1}", count, DateTime.Now));
+                            var logstring = string.Format("{0} states logged at {1}", count, DateTime.Now);
+                            Console.WriteLine(logstring);
+                            File.AppendAllText("states.log", logstring + Environment.NewLine);
                             return json;
                         }
                     }
