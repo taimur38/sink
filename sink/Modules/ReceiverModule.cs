@@ -58,15 +58,17 @@ namespace sink.Modules
                         {
                             var json = reader.ReadToEnd();
                             var obj = JObject.Parse(json);
-                            
+
+                            var count = 0;
                             foreach(JObject o in obj["states"]) {
 
                                 var t = Type.GetType("sink.States." + o["Type"]);
                                 var typed = (BaseState)o.ToObject(t);
-
+                                count++;
                                 typed.Save();
                             }
 
+                            Console.WriteLine(string.Format("{0} states logged at {1}", count, DateTime.Now));
                             return json;
                         }
                     }
