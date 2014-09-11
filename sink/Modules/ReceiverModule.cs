@@ -54,7 +54,7 @@ namespace sink.Modules
                 {
                     try
                     {
-                        using(var reader = new StreamReader(this.Request.Body))
+                        using (var reader = new StreamReader(this.Request.Body))
                         {
                             var json = reader.ReadToEnd();
                             var obj = JObject.Parse(json);
@@ -73,12 +73,12 @@ namespace sink.Modules
                             return json;
                         }
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
                         return e.Message;
                     }
-                }
+                };
         }
     }
 }
