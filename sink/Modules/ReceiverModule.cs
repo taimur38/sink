@@ -8,6 +8,7 @@ using sink.States;
 using Nancy.ModelBinding;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace sink.Modules
 {
@@ -31,7 +32,7 @@ namespace sink.Modules
                         var t = Type.GetType("sink.States." + obj["Type"].ToString());
 
 
-                        Console.WriteLine(t);
+                        var typed = JsonConvert.DeserializeObject(json, t);
                         
                         Console.WriteLine(json);
                         return json;
