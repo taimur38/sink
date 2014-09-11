@@ -14,20 +14,8 @@ namespace sink
         {
             get
             {
+                //TODO: load from config because this is stupid
                 return "4fb61b9f3aa975c486531f4e5223d353";
-            }
-        }
-
-        public static ClientSecrets GoogleClientCredential
-        {
-            get
-            {
-                return new ClientSecrets 
-                {
-                    
-                    ClientId = "969643812602-feu9cjsfmv69qsgj1rjoof7hlhalacll.apps.googleusercontent.com", 
-                    ClientSecret = "2bLoAblWyZ1nUww2LX3nuBHT" 
-                };
             }
         }
 

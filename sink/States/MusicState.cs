@@ -36,7 +36,7 @@ namespace sink.States
                 Date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                 Date = Date.AddSeconds(uts).ToLocalTime(); //TODO: this needs to use time of location from phone. can be done at deserialization
             }
-            catch(Exception e)
+            catch
             {
                 Date = DateTime.Now;
             }
