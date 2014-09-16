@@ -1,4 +1,5 @@
-﻿using Nancy.Hosting.Self;
+﻿using Nancy;
+using Nancy.Hosting.Self;
 using sink.Crawlers;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace sink
             var t = new Thread(extra_shit);
             t.Start();
 
-            using (var host = new NancyHost(uri))
+            using (var host = new NancyHost(new BootStrapper(), uri))
             {
                 host.Start();
                 Thread.Sleep(Timeout.Infinite);
@@ -39,6 +40,14 @@ namespace sink
             Console.WriteLine("{0} items crawled.".Template(items));
 
             return;
+        }
+    }
+
+    class BootStrapper : DefaultNancyBootstrapper
+    {
+        protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
+        {
+            StaticConfiguration.EnableRequestTracing = true;
         }
     }
 }
