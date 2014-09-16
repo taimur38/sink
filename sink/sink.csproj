@@ -122,6 +122,7 @@
     <Compile Include="Crawlers\GoogleCalendarCrawler.cs" />
     <Compile Include="Crawlers\LastFmCrawler.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Modules\AnalysisModule.cs" />
     <Compile Include="States\AppState.cs" />
     <Compile Include="States\BaseState.cs" />
     <Compile Include="States\BatteryState.cs" />

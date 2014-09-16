@@ -12,5 +12,11 @@ namespace sink
         {
             return string.Format(s, args);
         }
+
+        public static Type GetType(this string s, string base_assembly = "")
+        {
+            return Type.GetType(base_assembly + s);
+        }
+
     }
 }
