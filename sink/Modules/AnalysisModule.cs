@@ -25,7 +25,12 @@ namespace sink.Modules
                     DateTime beg = parameters.startDate;
                     DateTime end = parameters.endDate;
                     string collection_name = parameters.state + "State";
+
+                    Console.WriteLine(collection_name + " " + beg + " - " + end);
+
                     var type = collection_name.GetType("sink.States");
+
+                    Console.WriteLine(type);
 
                     MongoCollection<BsonDocument> collection = sink.Context.Mongo.DB.GetCollection(collection_name);
 
@@ -33,6 +38,7 @@ namespace sink.Modules
 
                     var res = collection.FindAs(type, q);
                     
+
                     return res.ToJson();
                 };
         }

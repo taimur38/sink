@@ -48,6 +48,7 @@ namespace sink
         protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
         {
             StaticConfiguration.EnableRequestTracing = true;
+            StaticConfiguration.DisableErrorTraces = false;
         }
     }
 }
