@@ -23,14 +23,12 @@ namespace sink.Modules
                     //from here, i want to serve a data model. parameter can hold beg/end date periods
                     DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
                     DateTime beg = dt.AddSeconds(parameters.startDate);
-                    Console.WriteLine(beg);
                     DateTime end = dt.AddSeconds(parameters.endDate);
-                    Console.WriteLine(end);
                     string collection_name = parameters.state + "State";
 
                     Console.WriteLine(collection_name + " " + beg + " - " + end);
 
-                    var type = collection_name.GetType("sink.States");
+                    var type = collection_name.GetType("sink.States.");
 
                     Console.WriteLine(type);
 
