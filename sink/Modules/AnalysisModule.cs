@@ -21,9 +21,9 @@ namespace sink.Modules
             Get["/query"] = parameters =>
                 {
                     //from here, i want to serve a data model. parameter can hold beg/end date periods
-
-                    DateTime beg = parameters.startDate;
-                    DateTime end = parameters.endDate;
+                    DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                    DateTime beg = dt.AddSeconds(parameters.startDate);
+                    DateTime end = dt.AddSeconds(parameters.endDate);
                     string collection_name = parameters.state + "State";
 
                     Console.WriteLine(collection_name + " " + beg + " - " + end);
@@ -38,7 +38,6 @@ namespace sink.Modules
 
                     var res = collection.FindAs(type, q);
                     
-
                     return res.ToJson();
                 };
         }
