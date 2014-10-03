@@ -129,6 +129,7 @@
     <Compile Include="States\ConnectivityState.cs" />
     <Compile Include="States\CrawledState.cs" />
     <Compile Include="States\CalendarState.cs" />
+    <Compile Include="States\HeartState.cs" />
     <Compile Include="States\MusicState.cs" />
     <Compile Include="States\LocationState.cs" />
     <Compile Include="Modules\HelloModule.cs" />
